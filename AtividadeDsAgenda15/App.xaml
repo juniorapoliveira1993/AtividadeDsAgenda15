@@ -1,0 +1,26 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AtividadeDsAgenda15"
+             x:Class="AtividadeDsAgenda15.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <LinearGradientBrush x:Key="BlushGradient" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#00264D" Offset="0.0" />
+                <GradientStop Color="#0052A2" Offset="0.25" />
+                <GradientStop Color="#00264D" Offset="0.5" />
+                <GradientStop Color="#0052A2" Offset="0.75" />
+                <GradientStop Color="#00264D" Offset="1" />
+            </LinearGradientBrush>
+
+            <Style TargetType="ContentPage">
+                <Setter Property="Background" Value="{StaticResource BlushGradient}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AtividadeDsAgenda15.Views.Register"
+    NavigationPage.HasNavigationBar="False"
+    Background="{StaticResource BlushGradient}"
+>
+    <Grid
+        RowDefinitions="*, auto">
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="20, 30, 20, 20"
+            Spacing="15"
+        >
+
+            <Label
+                Text="Cadastro de evento"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,10"
+            />
+
+            <Label
+                Text="Nome do evento" />
+
+            <Entry
+                x:Name="ent_name"
+            />
+
+            <VerticalStackLayout>
+
+                <Label
+         Text="Local do evento"
+     />
+
+                <Picker
+         x:Name="pck_local"
+         SelectedIndexChanged="pck_local_SelectedIndexChanged"
+     />
+            </VerticalStackLayout>
+
+            <Label
+                Text="Número de participantes"
+            />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto"
+            >
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="{Binding Value}"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    BindingContext="{x:Reference stp_number_participants}"
+                />
+
+                <Stepper
+                    x:Name="stp_number_participants"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Minimum="0"
+                    Maximum="1000"
+                    Increment="100"
+                    HorizontalOptions="Center"
+                />
+            </Grid>
+
+            <Label
+                Text="Custo por participante"
+            />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto"
+            >
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="{Binding Value, StringFormat='{}{0:C}'}"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    BindingContext="{x:Reference stp_cost_participants}"
+                />
+
+                <Stepper
+                    x:Name="stp_cost_participants"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Minimum="0"
+                    Maximum="100000"
+                    Increment="25"
+                    HorizontalOptions="Center"
+                />
+
+            </Grid>
+           
+            <HorizontalStackLayout
+                Spacing="20"
+                Margin="0,20,0,0"
+            >
+
+                <Label
+                    Text="Inicio"
+                    VerticalTextAlignment="Center"
+                    WidthRequest="70"
+                />
+
+                <DatePicker
+                    x:Name="dtp_start"
+                    Format="dd/MM/yyyy"
+                    HorizontalOptions="End"
+                    DateSelected="dtp_start_DateSelected"
+                />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                Spacing="20"
+            >
+
+                <Label
+                    Text="Término"
+                    VerticalTextAlignment="Center"
+                    WidthRequest="70"
+                />
+
+                <DatePicker
+                    x:Name="dtp_end"
+                    Format="dd/MM/yyyy" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <Button
+            Grid.Row="1"
+            Text="Cadastrar"
+            Clicked="OpenEventDetails"
+        />
+    </Grid>
+</ContentPage>
