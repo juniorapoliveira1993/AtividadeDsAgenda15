@@ -15,7 +15,6 @@ namespace AtividadeDsAgenda15.Model
         public string EventLocation { get; } = eventLocation.Name;
         public int Duration { get; } = (endDate - startDate).Days;
         private double _totalprice = -1;
-
         public string Totalprice { get{
 
                 if(_totalprice != -1) return _totalprice.ToString("C");
